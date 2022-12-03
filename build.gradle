@@ -1,0 +1,35 @@
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
+allprojects {
+    version = '1.0.0.0'
+    group = 'net.lavabucket.throttle'
+    project.ext.vendor = 'lavabucket.net'
+
+    tasks.withType(Jar) {
+        archivesBaseName = rootProject.name
+        manifest {
+            attributes([
+                "Specification-Title"     : rootProject.name,
+                "Specification-Vendor"    : vendor,
+                "Specification-Version"   : project.version,
+                "Implementation-Title"    : rootProject.name,
+                "Implementation-Version"  : project.version,
+                "Implementation-Vendor"   : vendor,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
+        }
+        from(project.rootDir) {
+            include 'COPYING'
+            include 'COPYING.LESSER'
+            include 'LICENSE'
+            include 'LICENSE.LESSER'
+            include 'README'
+            include 'README.md'
+            include 'README.txt'
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}

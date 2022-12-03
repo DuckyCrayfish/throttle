@@ -1,0 +1,2 @@
+# Mod details are EOL sensitive and require LF to display correctly
+src/main/resources/META-INF/mods.toml text eol=lf

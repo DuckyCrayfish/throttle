@@ -1,0 +1,11 @@
+project.plugins.apply('org.spongepowered.mixin')
+
+// Sponge config
+mixin {
+    add sourceSets.main, "${rootProject.name}.refmap.json"
+    config "${rootProject.name}.mixins.json"
+}
+
+dependencies {
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}

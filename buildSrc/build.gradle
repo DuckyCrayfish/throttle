@@ -1,0 +1,12 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+}
+
+dependencies {
+    implementation group: 'org.spongepowered', name: 'mixingradle', version: '0.7.+'
+    implementation group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+'
+}
